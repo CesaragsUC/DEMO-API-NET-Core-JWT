@@ -89,7 +89,7 @@ namespace DevIO.Api.Controllers
 
         }
 
-        private async Task<string> GerarJWT(string email)
+        private async Task<LoginResponseViewModel> GerarJWT(string email)
         {
 
             #region Gerar claims no token
@@ -125,7 +125,19 @@ namespace DevIO.Api.Controllers
             });
 
             var encodedToken = tokenHandler.WriteToken(token);
-            return encodedToken;
+            var response = new LoginResponseViewModel
+            {
+                Accesstoken = encodedToken,
+                ExpiresIn =  TimeSpan.FromHours(_appSettings.ExpirationHoras).TotalSeconds,
+                UserToken = new UserTokenViewModel
+                {
+                    Id =  user.Id,
+                    Email =  user.Email,
+                    Claims = claims.Select(x=> new ClaimViewModel{Type = x.Type,Value = x.Value})
+                }
+            };
+
+            return response;
         }
 
         private static long ToUnixEpochDate(DateTime date)

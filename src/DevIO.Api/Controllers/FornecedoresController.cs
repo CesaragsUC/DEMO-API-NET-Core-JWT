@@ -33,7 +33,7 @@ namespace DevIO.Api.Controllers
             _enderecoRepository = enderecoRepository;
         }
 
-        [HttpGet("all")]
+        [HttpGet]
         public async Task<IEnumerable<FornecedorViewModel>> ObterTodos()
         {
             return _mapper.Map<IEnumerable<FornecedorViewModel>>(await _fornecedorRepository.ObterTodos());
