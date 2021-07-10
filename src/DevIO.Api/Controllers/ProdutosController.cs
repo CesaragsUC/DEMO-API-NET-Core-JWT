@@ -23,7 +23,8 @@ namespace DevIO.Api.Controllers
         public ProdutosController(INotificador notificador, 
                                   IProdutoRepository produtoRepository, 
                                   IProdutoService produtoService, 
-                                  IMapper mapper) : base(notificador)
+                                  IMapper mapper,
+                                  IUser user) : base(notificador, user)
         {
             _produtoRepository = produtoRepository;
             _produtoService = produtoService;
@@ -146,7 +147,7 @@ namespace DevIO.Api.Controllers
 
             var imageDataByteArray = Convert.FromBase64String(arquivo);
 
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/app/demo-webapi/src/assets", imgNome);
+            var filePath = Path.Combine(@"L:\Projetos ASP.NET\Curso API net Core\Demo API\DEMO-API-NET-Core-JWT\src\Front\app\demo-webapi\src\assets", imgNome);
 
             if (System.IO.File.Exists(filePath))
             {
@@ -168,7 +169,8 @@ namespace DevIO.Api.Controllers
                 return false;
             }
 
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/app/demo-webapi/src/assets", imgPrefixo + arquivo.FileName);
+            //var path = Path.Combine(Directory.GetCurrentDirectory());
+            var path = Path.Combine(@"L:\Projetos ASP.NET\Curso API net Core\Demo API\DEMO-API-NET-Core-JWT\src\Front\app\demo-webapi\src\assets", imgPrefixo);
 
             if (System.IO.File.Exists(path))
             {

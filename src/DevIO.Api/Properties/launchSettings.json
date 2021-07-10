@@ -17,13 +17,22 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "DevIO.Api": {
+    "Dev.IO API": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/fornecedores",
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Dev.io Prod": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api/fornecedores",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     }
   }

@@ -9,11 +9,13 @@ using DevIO.Business.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Cors;
 
 namespace DevIO.Api.Controllers
 {
     [Authorize]
     [Route("api/fornecedores")]
+    //[DisableCors]
     public class FornecedoresController : MainController
     {
         private readonly IFornecedorRepository _fornecedorRepository;
@@ -25,7 +27,8 @@ namespace DevIO.Api.Controllers
                                       IMapper mapper, 
                                       IFornecedorService fornecedorService,
                                       INotificador notificador, 
-                                      IEnderecoRepository enderecoRepository) : base(notificador)
+                                      IEnderecoRepository enderecoRepository,
+                                          IUser user) : base(notificador, user)
         {
             _fornecedorRepository = fornecedorRepository;
             _mapper = mapper;
@@ -33,12 +36,14 @@ namespace DevIO.Api.Controllers
             _enderecoRepository = enderecoRepository;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IEnumerable<FornecedorViewModel>> ObterTodos()
         {
             return _mapper.Map<IEnumerable<FornecedorViewModel>>(await _fornecedorRepository.ObterTodos());
         }
 
+        //[EnableCors("Development")]
         [HttpGet("byId{id:guid}")]
         public async Task<ActionResult<FornecedorViewModel>> ObterPorId(Guid id)
         {
@@ -53,6 +58,7 @@ namespace DevIO.Api.Controllers
         [HttpPost("adicionar")]
         public async Task<ActionResult<FornecedorViewModel>> Adicionar(FornecedorViewModel fornecedorViewModel)
         {
+
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             await _fornecedorService.Adicionar(_mapper.Map<Fornecedor>(fornecedorViewModel));
@@ -64,6 +70,24 @@ namespace DevIO.Api.Controllers
         [HttpPut("atualizar/{id:guid}")]
         public async Task<ActionResult<FornecedorViewModel>> Atualizar(Guid id, FornecedorViewModel fornecedorViewModel)
         {
+            #region Obetendo usuario Logado
+
+            //pegando usuario logado
+            //sem costumização usando pelo  IHttpContextAccessor
+            if (User.Identity.IsAuthenticated)
+            {
+                var userName = User.Identity.Name;
+            }
+
+            //com custumização
+            if (UsuarioAutenticado)
+            {
+                var userName = _UserApp.Name;
+            }
+
+            #endregion
+
+
             if (id != fornecedorViewModel.Id)
             {
                 NotificarErro("O id informado não é o mesmo que foi passado na query");
