@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using DevIO.Business.Intefaces;
 using Microsoft.AspNetCore.Http;
 
@@ -23,8 +21,6 @@ namespace DevIO.Api.Extensions
         {
             return IsAuthenticated() ? Guid.Parse(_accessor.HttpContext.User.GetUserId()) : Guid.Empty;
         }
-
-        public string Email { get; }
 
         public string GetUserEmail()
         {

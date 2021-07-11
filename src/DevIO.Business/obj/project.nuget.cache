@@ -1,17 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "n4gj3glHAHsmifIbN8U84WdpXdnX4ecMKy/YL85ekzMKkF0KOlcS59xkATZwwP4zUK0Sf/w8wWD3KmmS7NXC2Q==",
+  "dgSpecHash": "Hk+VnnomQ9rxjfLgIp/PqmO/zMG9l1ZvanKbmrlE30W54AB+ZR0vbjw2IIW1hIpk8PrgHvBdFJIHdj/q/fx6BA==",
   "success": true,
   "projectFilePath": "L:\\Projetos ASP.NET\\Curso API net Core\\Demo API\\DEMO-API-NET-Core-JWT\\src\\DevIO.Business\\DevIO.Business.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\cesar\\.nuget\\packages\\fluentvalidation\\8.3.0\\fluentvalidation.8.3.0.nupkg.sha512",
-    "C:\\Users\\cesar\\.nuget\\packages\\microsoft.netcore.app\\2.2.0\\microsoft.netcore.app.2.2.0.nupkg.sha512",
-    "C:\\Users\\cesar\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.2.0\\microsoft.netcore.dotnetapphost.2.2.0.nupkg.sha512",
-    "C:\\Users\\cesar\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.2.0\\microsoft.netcore.dotnethostpolicy.2.2.0.nupkg.sha512",
-    "C:\\Users\\cesar\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.2.0\\microsoft.netcore.dotnethostresolver.2.2.0.nupkg.sha512",
-    "C:\\Users\\cesar\\.nuget\\packages\\microsoft.netcore.platforms\\2.2.0\\microsoft.netcore.platforms.2.2.0.nupkg.sha512",
-    "C:\\Users\\cesar\\.nuget\\packages\\microsoft.netcore.targets\\2.0.0\\microsoft.netcore.targets.2.0.0.nupkg.sha512",
-    "C:\\Users\\cesar\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\cesar\\.nuget\\packages\\fluentvalidation\\8.6.2\\fluentvalidation.8.6.2.nupkg.sha512",
     "C:\\Users\\cesar\\.nuget\\packages\\system.componentmodel.annotations\\4.4.1\\system.componentmodel.annotations.4.4.1.nupkg.sha512"
   ],
   "logs": []

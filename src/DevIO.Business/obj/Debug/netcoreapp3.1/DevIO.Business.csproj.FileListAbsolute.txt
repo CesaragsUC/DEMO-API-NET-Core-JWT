@@ -1,0 +1,9 @@
+L:\Projetos ASP.NET\Curso API net Core\Demo API\DEMO-API-NET-Core-JWT\src\DevIO.Business\bin\Debug\netcoreapp3.1\DevIO.Business.deps.json
+L:\Projetos ASP.NET\Curso API net Core\Demo API\DEMO-API-NET-Core-JWT\src\DevIO.Business\bin\Debug\netcoreapp3.1\DevIO.Business.dll
+L:\Projetos ASP.NET\Curso API net Core\Demo API\DEMO-API-NET-Core-JWT\src\DevIO.Business\bin\Debug\netcoreapp3.1\DevIO.Business.pdb
+L:\Projetos ASP.NET\Curso API net Core\Demo API\DEMO-API-NET-Core-JWT\src\DevIO.Business\obj\Debug\netcoreapp3.1\DevIO.Business.csprojAssemblyReference.cache
+L:\Projetos ASP.NET\Curso API net Core\Demo API\DEMO-API-NET-Core-JWT\src\DevIO.Business\obj\Debug\netcoreapp3.1\DevIO.Business.AssemblyInfoInputs.cache
+L:\Projetos ASP.NET\Curso API net Core\Demo API\DEMO-API-NET-Core-JWT\src\DevIO.Business\obj\Debug\netcoreapp3.1\DevIO.Business.AssemblyInfo.cs
+L:\Projetos ASP.NET\Curso API net Core\Demo API\DEMO-API-NET-Core-JWT\src\DevIO.Business\obj\Debug\netcoreapp3.1\DevIO.Business.csproj.CoreCompileInputs.cache
+L:\Projetos ASP.NET\Curso API net Core\Demo API\DEMO-API-NET-Core-JWT\src\DevIO.Business\obj\Debug\netcoreapp3.1\DevIO.Business.dll
+L:\Projetos ASP.NET\Curso API net Core\Demo API\DEMO-API-NET-Core-JWT\src\DevIO.Business\obj\Debug\netcoreapp3.1\DevIO.Business.pdb

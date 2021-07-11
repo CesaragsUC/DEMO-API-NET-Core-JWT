@@ -1,15 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Linq;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using System.Linq;
-using System.Security.Claims;
 
 namespace DevIO.Api.Extensions
 {
-    /// <summary>
-    /// Validação de claim customizada
-    /// Assim é melhor pois a que vem por padrao no identity é muito verbosa e poluida
-    /// </summary>
     public class CustomAuthorization
     {
         public static bool ValidarClaimsUsuario(HttpContext context, string claimName, string claimValue)

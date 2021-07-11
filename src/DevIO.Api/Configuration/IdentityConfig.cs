@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using DevIO.Api.Data;
 using DevIO.Api.Extensions;
-using DevIO.Data.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -17,19 +12,20 @@ namespace DevIO.Api.Configuration
 {
     public static class IdentityConfig
     {
-        public static IServiceCollection AddIdentityConfiguration(this IServiceCollection services,IConfiguration configuration)
+        public static IServiceCollection AddIdentityConfig(this IServiceCollection services,
+            IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-            {
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
-            });
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddErrorDescriber<IdentityMensagensPortugues>()
                 .AddDefaultTokenProviders();
 
-            //JWT config
+            // JWT
+
             var appSettingsSection = configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
 
@@ -42,21 +38,20 @@ namespace DevIO.Api.Configuration
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(x =>
             {
-                x.RequireHttpsMetadata = false;
+                x.RequireHttpsMetadata = true;
                 x.SaveToken = true;
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey =  new SymmetricSecurityKey(key),
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = true,
-                    ValidAudience =  appSettings.ValidEm,
-                    ValidIssuer =  appSettings.Emissor
+                    ValidateAudience = true,
+                    ValidAudience = appSettings.ValidoEm,
+                    ValidIssuer = appSettings.Emissor
                 };
             });
 
-
             return services;
         }
-
     }
 }
